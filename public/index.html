@@ -4,73 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Node.js Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #quiz-container {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        #result {
+            display: none;
+            margin: 0 auto;
+            width: 50%;
+            text-align: left;
+        }
+        #feedback p {
+            margin: 5px 0;
+        }
+        #feedback p.correct {
+            color: green;
+        }
+        #feedback p.incorrect {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <h1>Node.js Quiz</h1>
     <div id="quiz-container"></div>
-    <button onclick="submitQuiz()">Submit Answers</button>
+    <button id="submit-btn">Submit Answers</button>
+    <div id="result">
+        <h2>Quiz Result</h2>
+        <p id="score"></p>
+        <div id="feedback"></div>
+    </div>
 
     <script>
-        async function loadQuiz() {
-            try {
-                const response = await fetch('/quiz');
-                const quizQuestions = await response.json();
-                const quizContainer = document.getElementById('quiz-container');
-
-                quizQuestions.forEach((question, index) => {
-                    const questionElement = document.createElement('div');
-                    questionElement.innerHTML = `
-                        <p>${index + 1}. ${question.question}</p>
-                        <ul>
-                            ${question.options.map(option => `<li><input type="radio" name="question${index}" value="${option}">${option}</li>`).join('')}
-                        </ul>
-                    `;
-                    quizContainer.appendChild(questionElement);
-                });
-            } catch (error) {
-                console.error(error);
-                alert('Failed to load quiz questions. Please try again later.');
-            }
-        }
-
-        async function submitQuiz() {
+        document.addEventListener('DOMContentLoaded', function () {
             const quizContainer = document.getElementById('quiz-container');
-            const inputs = quizContainer.querySelectorAll('input[type="radio"]:checked');
-            if (inputs.length !== quizContainer.children.length) {
-                alert('Please answer all questions before submitting.');
-                return;
-            }
+            const submitBtn = document.getElementById('submit-btn');
+            const resultDiv = document.getElementById('result');
+            const scoreP = document.getElementById('score');
+            const feedbackDiv = document.getElementById('feedback');
 
-            const answers = Array.from(inputs).map(input => input.value);
+            let userAnswers = [];
 
-            try {
-                const response = await fetch('/submit', {
+            // Load quiz questions from the server
+            fetch('/quiz')
+                .then(response => response.json())
+                .then(questions => {
+                    questions.forEach((question, index) => {
+                        const questionDiv = document.createElement('div');
+                        questionDiv.innerHTML = `
+                            <p>${index + 1}. ${question.question}</p>
+                            <ul>
+                                ${question.options.map(option => `<li><label><input type="radio" name="question${index}" value="${option}">${option}</label></li>`).join('')}
+                            </ul>
+                            <hr>
+                        `;
+                        quizContainer.appendChild(questionDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error('Failed to load quiz questions:', error);
+                    alert('Failed to load quiz questions. Please try again later.');
+                });
+
+            // Submit quiz answers
+            submitBtn.addEventListener('click', function () {
+                userAnswers = [];
+                const radioInputs = document.querySelectorAll('input[type="radio"]:checked');
+                radioInputs.forEach(input => userAnswers.push(input.value));
+
+                fetch('/submit', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ answers })
-                });
-                const result = await response.json();
+                    body: JSON.stringify({ answers: userAnswers })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to submit quiz answers. Server returned ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    scoreP.textContent = `Your Score: ${data.score}`;
+                    feedbackDiv.innerHTML = '';
+                    data.feedback.forEach(feedback => {
+                        const feedbackItem = document.createElement('p');
+                        feedbackItem.textContent = `${feedback.question}: ${feedback.result}`;
+                        feedbackItem.classList.add(feedback.result === 'correct' ? 'correct' : 'incorrect');
+                        feedbackDiv.appendChild(feedbackItem);
+                    });
+                    resultDiv.style.display = 'block';
 
-                const resultContainer = document.createElement('div');
-                resultContainer.innerHTML = `<p>Your Score: ${result.score}</p>`;
-                result.feedback.forEach(feedback => {
-                    const feedbackElement = document.createElement('p');
-                    feedbackElement.innerHTML = feedback.result === 'correct' ?
-                        `${feedback.question}: Correct` :
-                        `${feedback.question}: Incorrect. Correct Answer: ${feedback.correctAnswer}`;
-                    resultContainer.appendChild(feedbackElement);
+                    // Scroll to show the result
+                    resultDiv.scrollIntoView({ behavior: 'smooth' });
+                })
+                .catch(error => {
+                    console.error('Failed to submit quiz answers:', error);
+                    alert('Failed to submit quiz answers. Please try again later.');
                 });
-                quizContainer.innerHTML = '';
-                quizContainer.appendChild(resultContainer);
-            } catch (error) {
-                console.error(error);
-                alert('Failed to submit quiz answers. Please try again later.');
-            }
-        }
-
-        loadQuiz();
+            });
+        });
     </script>
 </body>
 </html>

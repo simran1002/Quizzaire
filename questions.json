@@ -8,6 +8,134 @@
       "question": "Which module is used for creating a web server in Node.js?",
       "options": ["fs", "http", "url", "path"],
       "correctAnswer": "http"
-    }
-  ]
-  
+    },
+    {
+        "question": "What is Node.js?",
+        "options": [
+            "A framework for building frontend applications",
+            "A runtime environment for executing JavaScript code outside the browser",
+            "A database management system",
+            "A JavaScript library for DOM manipulation"
+        ],
+        "correctAnswer": "A runtime environment for executing JavaScript code outside the browser"
+    },
+    {
+        "question": "What is the event loop in Node.js?",
+        "options": [
+            "A mechanism for handling asynchronous operations",
+            "A loop that continuously checks for events and executes callback functions",
+            "A data structure for storing events",
+            "A function for looping through arrays"
+        ],
+        "correctAnswer": "A loop that continuously checks for events and executes callback functions"
+    },
+    {
+        "question": "What is JavaScript?",
+        "options": [
+            "A programming language for creating dynamic and interactive web pages",
+            "A server-side scripting language",
+            "A database management system",
+            "A browser extension language"
+        ],
+        "correctAnswer": "A programming language for creating dynamic and interactive web pages"
+    },
+    {
+        "question": "What is a closure in JavaScript?",
+        "options": [
+            "A function that has access to the outer function's variables",
+            "A function that is passed as an argument to another function",
+            "A function that executes after a specific time interval",
+            "A function that returns a new function"
+        ],
+        "correctAnswer": "A function that has access to the outer function's variables"
+    },
+    {
+        "question": "What is MongoDB?",
+        "options": [
+            "A relational database management system",
+            "A NoSQL database management system",
+            "A programming language",
+            "A JavaScript library"
+        ],
+        "correctAnswer": "A NoSQL database management system"
+    },
+    {
+        "question": "What is the primary key in MongoDB?",
+        "options": [
+            "A unique identifier assigned to each document",
+            "A field used for sorting documents",
+            "A field containing nested documents",
+            "A field that links documents in different collections"
+        ],
+        "correctAnswer": "A unique identifier assigned to each document"
+    },
+    {
+        "question": "What is a document in MongoDB?",
+        "options": [
+            "A record in a table",
+            "A collection of tables",
+            "A JSON-like data structure used to store data",
+            "A function used for querying data"
+        ],
+        "correctAnswer": "A JSON-like data structure used to store data"
+    },
+    {
+        "question": "Which command is used to start the MongoDB server?",
+        "options": [
+            "mongod",
+            "mongo",
+            "start",
+            "npm start"
+        ],
+        "correctAnswer": "mongod"
+    },{
+      "question": "What is PostgreSQL?",
+      "options": [
+          "A NoSQL database",
+          "A relational database management system",
+          "A JavaScript library",
+          "A cloud computing platform"
+      ],
+      "correctAnswer": "A relational database management system"
+  },
+  {
+      "question": "Which SQL command is used to retrieve data from a PostgreSQL database?",
+      "options": [
+          "SELECT",
+          "RETRIEVE",
+          "GET",
+          "FETCH"
+      ],
+      "correctAnswer": "SELECT"
+  },
+  {
+      "question": "What does SQL stand for?",
+      "options": [
+          "Simple Query Language",
+          "Structured Query Language",
+          "System Query Language",
+          "Sequential Query Language"
+      ],
+      "correctAnswer": "Structured Query Language"
+  },
+  {
+      "question": "Which of the following is NOT a valid PostgreSQL data type?",
+      "options": [
+          "INTEGER",
+          "VARCHAR",
+          "DECIMAL",
+          "BOOLEAN"
+      ],
+      "correctAnswer": "DECIMAL"
+  },
+  {
+      "question": "What is a primary key in PostgreSQL?",
+      "options": [
+          "A unique identifier assigned to each row in a table",
+          "A field that can contain multiple values",
+          "A foreign key from another table",
+          "An index used for sorting data"
+      ],
+      "correctAnswer": "A unique identifier assigned to each row in a table"
+  }
+]  

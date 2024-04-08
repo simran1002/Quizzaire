@@ -1,10 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Allow requests from all origins
+app.use(cors());
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
