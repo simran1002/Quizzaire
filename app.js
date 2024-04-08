@@ -1,14 +1,15 @@
-// app.js
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Load quiz questions from JSON file
 const quizQuestions = JSON.parse(fs.readFileSync('quizQuestions.json', 'utf8'));
@@ -21,6 +22,11 @@ app.get('/quiz', (req, res) => {
 // Submit quiz answers
 app.post('/submit', (req, res) => {
   const userAnswers = req.body.answers;
+  if (!userAnswers || !Array.isArray(userAnswers) || userAnswers.length !== quizQuestions.length) {
+    res.status(400).json({ error: 'Invalid submission format' });
+    return;
+  }
+
   let score = 0;
   const feedback = [];
 

@@ -1,0 +1,13 @@
+[
+    {
+      "question": "What does Node.js use for asynchronous programming?",
+      "options": ["Promises", "Callbacks", "Async/Await", "All of the above"],
+      "correctAnswer": "Callbacks"
+    },
+    {
+      "question": "Which module is used for creating a web server in Node.js?",
+      "options": ["fs", "http", "url", "path"],
+      "correctAnswer": "http"
+    }
+  ]
+  

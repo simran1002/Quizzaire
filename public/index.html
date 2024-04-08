@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js Quiz</title>
+</head>
+<body>
+    <h1>Node.js Quiz</h1>
+    <div id="quiz-container"></div>
+    <button onclick="submitQuiz()">Submit Answers</button>
+
+    <script>
+        async function loadQuiz() {
+            const response = await fetch('/quiz');
+            const quizQuestions = await response.json();
+            const quizContainer = document.getElementById('quiz-container');
+
+            quizQuestions.forEach((question, index) => {
+                const questionElement = document.createElement('div');
+                questionElement.innerHTML = `
+                    <p>${index + 1}. ${question.question}</p>
+                    <ul>
+                        ${question.options.map(option => `<li>${option}</li>`).join('')}
+                    </ul>
+                `;
+                quizContainer.appendChild(questionElement);
+            });
+        }
+
+        async function submitQuiz() {
+            const quizContainer = document.getElementById('quiz-container');
+            const inputs = quizContainer.querySelectorAll('input[type="radio"]');
+            const answers = Array.from(inputs).map(input => input.checked ? input.value : null);
+
+            const response = await fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ answers })
+            });
+            const result = await response.json();
+
+            const resultContainer = document.createElement('div');
+            resultContainer.innerHTML = `<p>Your Score: ${result.score}</p>`;
+            result.feedback.forEach(feedback => {
+                const feedbackElement = document.createElement('p');
+                feedbackElement.innerHTML = feedback.result === 'correct' ?
+                    `${feedback.question}: Correct` :
+                    `${feedback.question}: Incorrect. Correct Answer: ${feedback.correctAnswer}`;
+                resultContainer.appendChild(feedbackElement);
+            });
+            quizContainer.innerHTML = '';
+            quizContainer.appendChild(resultContainer);
+        }
+
+        loadQuiz();
+    </script>
+</body>
+</html>
