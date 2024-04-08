@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "faaf5116-1825-42ce-9065-776b279b2043",
+		"name": "Quizzaire",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24106690"
+	},
+	"item": [
+		{
+			"name": "Serve quiz questions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/quiz",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"quiz"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/quiz",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"quiz"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "298"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"12a-1613pVvyw3+qmrg+5ipk+BZzKOM\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 08 Apr 2024 16:30:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"question\": \"What does Node.js use for asynchronous programming?\",\n        \"options\": [\n            \"Promises\",\n            \"Callbacks\",\n            \"Async/Await\",\n            \"All of the above\"\n        ],\n        \"correctAnswer\": \"Callbacks\"\n    },\n    {\n        \"question\": \"Which module is used for creating a web server in Node.js?\",\n        \"options\": [\n            \"fs\",\n            \"http\",\n            \"url\",\n            \"path\"\n        ],\n        \"correctAnswer\": \"http\"\n    }\n]"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/quiz",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"quiz"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2582"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a16-bhNKhsdc550NvgNA2QxJpWUTQ0Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 08 Apr 2024 17:28:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"question\": \"What does Node.js use for asynchronous programming?\",\n        \"options\": [\n            \"Promises\",\n            \"Callbacks\",\n            \"Async/Await\",\n            \"All of the above\"\n        ],\n        \"correctAnswer\": \"Callbacks\"\n    },\n    {\n        \"question\": \"Which module is used for creating a web server in Node.js?\",\n        \"options\": [\n            \"fs\",\n            \"http\",\n            \"url\",\n            \"path\"\n        ],\n        \"correctAnswer\": \"http\"\n    },\n    {\n        \"question\": \"What is Node.js?\",\n        \"options\": [\n            \"A framework for building frontend applications\",\n            \"A runtime environment for executing JavaScript code outside the browser\",\n            \"A database management system\",\n            \"A JavaScript library for DOM manipulation\"\n        ],\n        \"correctAnswer\": \"A runtime environment for executing JavaScript code outside the browser\"\n    },\n    {\n        \"question\": \"What is the event loop in Node.js?\",\n        \"options\": [\n            \"A mechanism for handling asynchronous operations\",\n            \"A loop that continuously checks for events and executes callback functions\",\n            \"A data structure for storing events\",\n            \"A function for looping through arrays\"\n        ],\n        \"correctAnswer\": \"A loop that continuously checks for events and executes callback functions\"\n    },\n    {\n        \"question\": \"What is JavaScript?\",\n        \"options\": [\n            \"A programming language for creating dynamic and interactive web pages\",\n            \"A server-side scripting language\",\n            \"A database management system\",\n            \"A browser extension language\"\n        ],\n        \"correctAnswer\": \"A programming language for creating dynamic and interactive web pages\"\n    },\n    {\n        \"question\": \"What is a closure in JavaScript?\",\n        \"options\": [\n            \"A function that has access to the outer function's variables\",\n            \"A function that is passed as an argument to another function\",\n            \"A function that executes after a specific time interval\",\n            \"A function that returns a new function\"\n        ],\n        \"correctAnswer\": \"A function that has access to the outer function's variables\"\n    },\n    {\n        \"question\": \"What is MongoDB?\",\n        \"options\": [\n            \"A relational database management system\",\n            \"A NoSQL database management system\",\n            \"A programming language\",\n            \"A JavaScript library\"\n        ],\n        \"correctAnswer\": \"A NoSQL database management system\"\n    },\n    {\n        \"question\": \"What is the primary key in MongoDB?\",\n        \"options\": [\n            \"A unique identifier assigned to each document\",\n            \"A field used for sorting documents\",\n            \"A field containing nested documents\",\n            \"A field that links documents in different collections\"\n        ],\n        \"correctAnswer\": \"A unique identifier assigned to each document\"\n    },\n    {\n        \"question\": \"What is a document in MongoDB?\",\n        \"options\": [\n            \"A record in a table\",\n            \"A collection of tables\",\n            \"A JSON-like data structure used to store data\",\n            \"A function used for querying data\"\n        ],\n        \"correctAnswer\": \"A JSON-like data structure used to store data\"\n    },\n    {\n        \"question\": \"Which command is used to start the MongoDB server?\",\n        \"options\": [\n            \"mongod\",\n            \"mongo\",\n            \"start\",\n            \"npm start\"\n        ],\n        \"correctAnswer\": \"mongod\"\n    }\n]"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/quiz",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"quiz"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "3609"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"e19-hPs70b1iGsEzuIY9IXBAVFt1i04\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 08 Apr 2024 18:27:52 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"question\": \"What does Node.js use for asynchronous programming?\",\n        \"options\": [\n            \"Promises\",\n            \"Callbacks\",\n            \"Async/Await\",\n            \"All of the above\"\n        ],\n        \"correctAnswer\": \"Callbacks\"\n    },\n    {\n        \"question\": \"Which module is used for creating a web server in Node.js?\",\n        \"options\": [\n            \"fs\",\n            \"http\",\n            \"url\",\n            \"path\"\n        ],\n        \"correctAnswer\": \"http\"\n    },\n    {\n        \"question\": \"What is Node.js?\",\n        \"options\": [\n            \"A framework for building frontend applications\",\n            \"A runtime environment for executing JavaScript code outside the browser\",\n            \"A database management system\",\n            \"A JavaScript library for DOM manipulation\"\n        ],\n        \"correctAnswer\": \"A runtime environment for executing JavaScript code outside the browser\"\n    },\n    {\n        \"question\": \"What is the event loop in Node.js?\",\n        \"options\": [\n            \"A mechanism for handling asynchronous operations\",\n            \"A loop that continuously checks for events and executes callback functions\",\n            \"A data structure for storing events\",\n            \"A function for looping through arrays\"\n        ],\n        \"correctAnswer\": \"A loop that continuously checks for events and executes callback functions\"\n    },\n    {\n        \"question\": \"What is JavaScript?\",\n        \"options\": [\n            \"A programming language for creating dynamic and interactive web pages\",\n            \"A server-side scripting language\",\n            \"A database management system\",\n            \"A browser extension language\"\n        ],\n        \"correctAnswer\": \"A programming language for creating dynamic and interactive web pages\"\n    },\n    {\n        \"question\": \"What is a closure in JavaScript?\",\n        \"options\": [\n            \"A function that has access to the outer function's variables\",\n            \"A function that is passed as an argument to another function\",\n            \"A function that executes after a specific time interval\",\n            \"A function that returns a new function\"\n        ],\n        \"correctAnswer\": \"A function that has access to the outer function's variables\"\n    },\n    {\n        \"question\": \"What is MongoDB?\",\n        \"options\": [\n            \"A relational database management system\",\n            \"A NoSQL database management system\",\n            \"A programming language\",\n            \"A JavaScript library\"\n        ],\n        \"correctAnswer\": \"A NoSQL database management system\"\n    },\n    {\n        \"question\": \"What is the primary key in MongoDB?\",\n        \"options\": [\n            \"A unique identifier assigned to each document\",\n            \"A field used for sorting documents\",\n            \"A field containing nested documents\",\n            \"A field that links documents in different collections\"\n        ],\n        \"correctAnswer\": \"A unique identifier assigned to each document\"\n    },\n    {\n        \"question\": \"What is a document in MongoDB?\",\n        \"options\": [\n            \"A record in a table\",\n            \"A collection of tables\",\n            \"A JSON-like data structure used to store data\",\n            \"A function used for querying data\"\n        ],\n        \"correctAnswer\": \"A JSON-like data structure used to store data\"\n    },\n    {\n        \"question\": \"Which command is used to start the MongoDB server?\",\n        \"options\": [\n            \"mongod\",\n            \"mongo\",\n            \"start\",\n            \"npm start\"\n        ],\n        \"correctAnswer\": \"mongod\"\n    },\n    {\n        \"question\": \"What is PostgreSQL?\",\n        \"options\": [\n            \"A NoSQL database\",\n            \"A relational database management system\",\n            \"A JavaScript library\",\n            \"A cloud computing platform\"\n        ],\n        \"correctAnswer\": \"A relational database management system\"\n    },\n    {\n        \"question\": \"Which SQL command is used to retrieve data from a PostgreSQL database?\",\n        \"options\": [\n            \"SELECT\",\n            \"RETRIEVE\",\n            \"GET\",\n            \"FETCH\"\n        ],\n        \"correctAnswer\": \"SELECT\"\n    },\n    {\n        \"question\": \"What does SQL stand for?\",\n        \"options\": [\n            \"Simple Query Language\",\n            \"Structured Query Language\",\n            \"System Query Language\",\n            \"Sequential Query Language\"\n        ],\n        \"correctAnswer\": \"Structured Query Language\"\n    },\n    {\n        \"question\": \"Which of the following is NOT a valid PostgreSQL data type?\",\n        \"options\": [\n            \"INTEGER\",\n            \"VARCHAR\",\n            \"DECIMAL\",\n            \"BOOLEAN\"\n        ],\n        \"correctAnswer\": \"DECIMAL\"\n    },\n    {\n        \"question\": \"What is a primary key in PostgreSQL?\",\n        \"options\": [\n            \"A unique identifier assigned to each row in a table\",\n            \"A field that can contain multiple values\",\n            \"A foreign key from another table\",\n            \"An index used for sorting data\"\n        ],\n        \"correctAnswer\": \"A unique identifier assigned to each row in a table\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Submit quiz answers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"answers\": [\"Callbacks\", \"http\", \"A runtime environment for executing JavaScript code outside the browser\", \"A loop that continuously checks for events and executes callback functions\", \"A programming language for creating dynamic and interactive web pages\", \"A function that has access to the outer function's variables\", \"A NoSQL database management system\", \"A unique identifier assigned to each document\", \"A JSON-like data structure used to store data\", \"mongod\", \"A NoSQL database\", \"RETRIEVE\",\"System Query Language\",\"BOOLEAN\", \"An index used for sorting data\"]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/submit",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"submit"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"answers\": [\"Callbacks\", \"http\"]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/submit",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"submit"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "203"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cb-oGxTWRvKcOOtO+Wj6yVHeoeON3g\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 08 Apr 2024 16:32:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"score\": 2,\n    \"feedback\": [\n        {\n            \"question\": \"What does Node.js use for asynchronous programming?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"Which module is used for creating a web server in Node.js?\",\n            \"result\": \"correct\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"answers\": [\"Callbacks\", \"http\", \"A runtime environment for executing JavaScript code outside the browser\", \"A loop that continuously checks for events and executes callback functions\", \"A programming language for creating dynamic and interactive web pages\", \"A function that has access to the outer function's variables\", \"A NoSQL database management system\", \"A unique identifier assigned to each document\", \"A JSON-like data structure used to store data\", \"mongod\"]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/submit",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"submit"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "716"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2cc-Pfo5OV6odyRLm7+V+A5EnfvCHss\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 08 Apr 2024 16:36:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"score\": 10,\n    \"feedback\": [\n        {\n            \"question\": \"What does Node.js use for asynchronous programming?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"Which module is used for creating a web server in Node.js?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is Node.js?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is the event loop in Node.js?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is JavaScript?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is a closure in JavaScript?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is MongoDB?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is the primary key in MongoDB?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is a document in MongoDB?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"Which command is used to start the MongoDB server?\",\n            \"result\": \"correct\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"answers\": [\"Callbacks\", \"http\", \"A runtime environment for executing JavaScript code outside the browser\", \"A loop that continuously checks for events and executes callback functions\", \"A programming language for creating dynamic and interactive web pages\", \"A function that has access to the outer function's variables\", \"A NoSQL database management system\", \"A unique identifier assigned to each document\", \"A JSON-like data structure used to store data\", \"mongod\", \"A NoSQL database\", \"RETRIEVE\",\"System Query Language\",\"BOOLEAN\", \"An index used for sorting data\"]\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/submit",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"submit"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1332"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"534-gsfT4FgeXs0wzRIWFgC6GBtELKY\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 08 Apr 2024 18:29:08 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"score\": 10,\n    \"feedback\": [\n        {\n            \"question\": \"What does Node.js use for asynchronous programming?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"Which module is used for creating a web server in Node.js?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is Node.js?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is the event loop in Node.js?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is JavaScript?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is a closure in JavaScript?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is MongoDB?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is the primary key in MongoDB?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is a document in MongoDB?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"Which command is used to start the MongoDB server?\",\n            \"result\": \"correct\"\n        },\n        {\n            \"question\": \"What is PostgreSQL?\",\n            \"result\": \"incorrect\",\n            \"correctAnswer\": \"A relational database management system\"\n        },\n        {\n            \"question\": \"Which SQL command is used to retrieve data from a PostgreSQL database?\",\n            \"result\": \"incorrect\",\n            \"correctAnswer\": \"SELECT\"\n        },\n        {\n            \"question\": \"What does SQL stand for?\",\n            \"result\": \"incorrect\",\n            \"correctAnswer\": \"Structured Query Language\"\n        },\n        {\n            \"question\": \"Which of the following is NOT a valid PostgreSQL data type?\",\n            \"result\": \"incorrect\",\n            \"correctAnswer\": \"DECIMAL\"\n        },\n        {\n            \"question\": \"What is a primary key in PostgreSQL?\",\n            \"result\": \"incorrect\",\n            \"correctAnswer\": \"A unique identifier assigned to each row in a table\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
