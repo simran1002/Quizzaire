@@ -12,47 +12,62 @@
 
     <script>
         async function loadQuiz() {
-            const response = await fetch('/quiz');
-            const quizQuestions = await response.json();
-            const quizContainer = document.getElementById('quiz-container');
+            try {
+                const response = await fetch('/quiz');
+                const quizQuestions = await response.json();
+                const quizContainer = document.getElementById('quiz-container');
 
-            quizQuestions.forEach((question, index) => {
-                const questionElement = document.createElement('div');
-                questionElement.innerHTML = `
-                    <p>${index + 1}. ${question.question}</p>
-                    <ul>
-                        ${question.options.map(option => `<li>${option}</li>`).join('')}
-                    </ul>
-                `;
-                quizContainer.appendChild(questionElement);
-            });
+                quizQuestions.forEach((question, index) => {
+                    const questionElement = document.createElement('div');
+                    questionElement.innerHTML = `
+                        <p>${index + 1}. ${question.question}</p>
+                        <ul>
+                            ${question.options.map(option => `<li><input type="radio" name="question${index}" value="${option}">${option}</li>`).join('')}
+                        </ul>
+                    `;
+                    quizContainer.appendChild(questionElement);
+                });
+            } catch (error) {
+                console.error(error);
+                alert('Failed to load quiz questions. Please try again later.');
+            }
         }
 
         async function submitQuiz() {
             const quizContainer = document.getElementById('quiz-container');
-            const inputs = quizContainer.querySelectorAll('input[type="radio"]');
-            const answers = Array.from(inputs).map(input => input.checked ? input.value : null);
+            const inputs = quizContainer.querySelectorAll('input[type="radio"]:checked');
+            if (inputs.length !== quizContainer.children.length) {
+                alert('Please answer all questions before submitting.');
+                return;
+            }
 
-            const response = await fetch('/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ answers })
-            });
-            const result = await response.json();
+            const answers = Array.from(inputs).map(input => input.value);
 
-            const resultContainer = document.createElement('div');
-            resultContainer.innerHTML = `<p>Your Score: ${result.score}</p>`;
-            result.feedback.forEach(feedback => {
-                const feedbackElement = document.createElement('p');
-                feedbackElement.innerHTML = feedback.result === 'correct' ?
-                    `${feedback.question}: Correct` :
-                    `${feedback.question}: Incorrect. Correct Answer: ${feedback.correctAnswer}`;
-                resultContainer.appendChild(feedbackElement);
-            });
-            quizContainer.innerHTML = '';
-            quizContainer.appendChild(resultContainer);
+            try {
+                const response = await fetch('/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ answers })
+                });
+                const result = await response.json();
+
+                const resultContainer = document.createElement('div');
+                resultContainer.innerHTML = `<p>Your Score: ${result.score}</p>`;
+                result.feedback.forEach(feedback => {
+                    const feedbackElement = document.createElement('p');
+                    feedbackElement.innerHTML = feedback.result === 'correct' ?
+                        `${feedback.question}: Correct` :
+                        `${feedback.question}: Incorrect. Correct Answer: ${feedback.correctAnswer}`;
+                    resultContainer.appendChild(feedbackElement);
+                });
+                quizContainer.innerHTML = '';
+                quizContainer.appendChild(resultContainer);
+            } catch (error) {
+                console.error(error);
+                alert('Failed to submit quiz answers. Please try again later.');
+            }
         }
 
         loadQuiz();

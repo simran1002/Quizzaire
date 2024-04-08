@@ -12,17 +12,17 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Load quiz questions from JSON file
-const quizQuestions = JSON.parse(fs.readFileSync('quizQuestions.json', 'utf8'));
+const questions = JSON.parse(fs.readFileSync('questions.json', 'utf8'));
 
 // Serve quiz questions
 app.get('/quiz', (req, res) => {
-  res.json(quizQuestions);
+  res.json(questions);
 });
 
 // Submit quiz answers
 app.post('/submit', (req, res) => {
   const userAnswers = req.body.answers;
-  if (!userAnswers || !Array.isArray(userAnswers) || userAnswers.length !== quizQuestions.length) {
+  if (!userAnswers || !Array.isArray(userAnswers) || userAnswers.length !== questions.length) {
     res.status(400).json({ error: 'Invalid submission format' });
     return;
   }
@@ -30,7 +30,7 @@ app.post('/submit', (req, res) => {
   let score = 0;
   const feedback = [];
 
-  quizQuestions.forEach((question, index) => {
+  questions.forEach((question, index) => {
     if (userAnswers[index] === question.correctAnswer) {
       score++;
       feedback.push({ question: question.question, result: 'correct' });
